@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light mode (minimal use - dark is default) */
+    --background: 0 0% 100%;
+    --foreground: 222 84% 5%;
+    
+    --card: 0 0% 98%;
+    --card-foreground: 222 84% 5%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+    
+    --primary: 158 100% 50%;
+    --primary-foreground: 222 84% 5%;
+    
+    --secondary: 192 100% 50%;
+    --secondary-foreground: 222 84% 5%;
+    
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 280 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 158 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 158 100% 50%;
+    --sidebar-primary-foreground: 222 84% 5%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 158 100% 50%;
+  }
+
+  .dark {
+    /* Dark mode - FitForge cyberpunk theme */
+    --background: 222 47% 5%;
+    --foreground: 0 0% 98%;
+    
+    --card: 222 45% 8%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 222 47% 6%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 158 100% 50%;
+    --primary-foreground: 222 47% 5%;
+    
+    --secondary: 192 100% 50%;
+    --secondary-foreground: 222 47% 5%;
+    
+    --muted: 222 45% 12%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 280 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 45% 15%;
+    --input: 222 45% 12%;
+    --ring: 158 100% 50%;
+    
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 158 100% 50%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 222 45% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 45% 15%;
+    --sidebar-ring: 158 100% 50%;
+  }
+}
+
+/* Custom FitForge Design System */
+@layer base {
+  :root {
+    /* Neon gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(158 100% 50%), hsl(192 100% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(192 100% 50%), hsl(280 80% 65%));
+    --gradient-hero: linear-gradient(135deg, hsl(158 100% 50% / 0.2), hsl(192 100% 50% / 0.2), hsl(280 80% 65% / 0.2));
+    
+    /* Glow effects */
+    --glow-primary: 0 0 20px hsl(158 100% 50% / 0.5);
+    --glow-secondary: 0 0 20px hsl(192 100% 50% / 0.5);
+    --glow-accent: 0 0 20px hsl(280 80% 65% / 0.5);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* Glassmorphism utility */
+  .glass {
+    @apply bg-card/40 backdrop-blur-xl border border-border/50;
+  }
+  
+  .glass-strong {
+    @apply bg-card/60 backdrop-blur-2xl border border-border;
+  }
+  
+  /* Neon glow utilities */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
